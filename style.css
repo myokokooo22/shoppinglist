@@ -1,0 +1,208 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.cart{
+    position: relative;
+}
+
+.cart::before{
+    content: attr(data-count);
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
+    top: -9px;
+    right: -19px;
+    text-align: center;
+    border-radius: 50px;
+
+    cursor: pointer;
+    opacity: 0;
+}
+
+.cart.on::before{
+    opacity: 1;
+}
+
+.item{
+    width: 250px;
+    height: 550px;
+    background-color: #f4f4f4;
+    margin: 10px;
+    position: relative;
+    border-radius: 20px;
+
+    transition: all 0.5s;
+
+    overflow: hidden;
+}
+
+.item img{
+    width: 200px;
+    height: 350px;
+    margin: auto;
+    background-size: cover;
+    background-position: center;
+    object-fit: scale-down;  
+    transform: scale(0.8);
+    transition: all 0.5s;
+}
+
+.item:hover img{
+   
+    object-fit: cover;
+    transform: scale(1);
+}
+
+.dat{
+    width: 100%;
+    background-color: #eee;
+    padding: 0;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+}
+
+.dat p{
+    margin: 10px auto;
+}
+
+.dat strong{
+    display: inline-block;
+    width: 100%;
+}
+
+.dat p:first-child strong{
+    width: 75%;
+}
+
+.price{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.in span{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 50px;
+    background-color: white;
+    display: inline-block;
+    text-align: center;
+    margin: 0 6px;
+}
+
+.in span.active{
+    background-color: grey;
+    color: white;
+}
+
+.in:nth-of-type(2n) span{
+    background-color: rgb(49, 49, 233);
+    border: 2px solid #ccc;
+}
+
+.in:nth-of-type(2n) span:first-child{
+    background-color: crimson;
+    border: 2px solid #ccc;
+}
+
+.in:nth-of-type(2n) span:last-child{
+    background-color: gold;
+    border: 2px solid #ccc;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    background-color: crimson;
+    margin: 5px 30px 0 5px;
+    color: white;
+    cursor: pointer;
+}
+
+button.add{
+    background-color: skyblue;
+}
+
+/* Js file css */
+
+.cart-field{
+    width: 90%;
+    height: 600px;
+    background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px;
+    position: absolute;
+    /* top: -700px; */
+    left: 5%;
+    transition: 0.5s;
+    opacity: 0;
+
+    z-index: -100;
+}
+
+.cart-field.display{
+    top: 50px;
+    opacity: 1;
+    z-index: 100;
+}
+
+.cart-field .item,
+.cart-field .item:hover{
+    width: 96%;
+    height: 420px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 30px auto;
+}
+
+.cart-field .item img,
+.cart-field .item:hover img{
+    transform: scale(1);
+    width: 30%
+}
+
+.cart-field .item .dat{
+    width: 60%;
+    position: relative;
+    height: 100%;
+    padding: 30px;
+    left: auto;
+}
+
+.cart-field .item .dat strong,
+.cart-field .item .dat .price{
+    font-size: 30px;
+}
+
+.cart-field .dat p:first-child strong{
+    width: 85%;
+}
+
+.cart-field .dat p small{
+    font-size: 20px;
+}
+
+.cart-field .in span{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+}
+
+.cart-field .image-carior.active{
+    display: none;
+}
